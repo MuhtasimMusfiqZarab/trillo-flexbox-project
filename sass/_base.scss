@@ -1,0 +1,76 @@
+// This files are partials
+
+/*
+COLORS
+
+Grey light 1: #faf9f9
+Grey light 2: #f4f2f2
+Grey light 3: #f0eeee
+Grey light 4: #ccc
+
+Grey dark 1: #333
+Grey dark 2: #777
+Grey dark 3: #999
+
+*/
+
+// we collect all the css variables/ css custom properties in one place which is the root psudo class (root is the global parent element)
+// it is same as the html selector but with higher specificity
+// putting the css variables here let them be accesible from the whole document
+:root {
+  //background color
+  --color-primary: #eb2f64;
+  --color-primary-light: #ff3366;
+  --color-primary-dark: #ba265d;
+  //overall text color
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999;
+}
+
+// global reset
+* {
+  margin: 0;
+  padding: 0;
+}
+
+//inheriting box-sizing properties to all the elements (including the before and after psudo-elements)
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+// define the box layout
+html {
+  box-sizing: border-box;
+  // setting the global font-size
+  font-size: 62.5%; // defining 1rem=10px; Here 100%= 16px;
+}
+
+body {
+  // this one is coming from google fonts included inside of html file
+  // use sans-serif font if google-font not found
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-grey-dark-2);
+  //Gradient background image here
+  background-image: linear-gradient(
+    to right bottom,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
+  background-size: cover;
+  //set background only for body element
+  background-repeat: no-repeat;
+
+  //increase the body to cover the entire viewport height
+  min-height: 100vh;
+}
