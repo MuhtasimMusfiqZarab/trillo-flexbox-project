@@ -1,0 +1,36 @@
+.container {
+  // this can decrease if there is not enough space to show the content
+  max-width: 120rem;
+  margin: 8rem auto; // centers the container inside of its parent(body) element
+  background-color: var(--color-grey-light-1);
+  box-shadow: var(--shadow-dark);
+
+  //defining the height
+  min-height: 50rem;
+}
+
+.header {
+  height: 7rem;
+  background-color: #fff;
+  border-bottom: var(--color-grey-light-2);
+}
+
+// THis is the flex container
+.content {
+  // we want sidebar and navigation side by side
+  display: flex;
+}
+
+.sidebar {
+  background-color: var(--color-grey-dark-1);
+
+  //define the width we use flex-basis property (short hand is flex (flex-grow, flex-shrink, flex-basis)
+  flex: 0 0 18%;
+}
+
+.hotel-view {
+  background-color: #fff;
+
+  // occupy the entire available space(flex-grow)
+  flex: 1;
+}

@@ -31,6 +31,8 @@ Grey dark 3: #999
   --color-grey-dark-1: #333;
   --color-grey-dark-2: #777;
   --color-grey-dark-3: #999;
+
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
 }
 
 // global reset
@@ -68,7 +70,7 @@ body {
     var(--color-primary-dark)
   );
   background-size: cover;
-  //set background only for body element
+  //set background only covering the body element
   background-repeat: no-repeat;
 
   //increase the body to cover the entire viewport height
