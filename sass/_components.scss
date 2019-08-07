@@ -2,7 +2,7 @@
 //LOGO
 .logo {
   height: 3.25rem;
-  margin-left: 3rem;
+  margin-left: 2rem;
 }
 
 ////////////////////////////////////////
@@ -78,23 +78,58 @@
 //USER NAVIGATION
 
 .user-nav {
-  background-color: greenyellow;
+  // this is for one individual flex item
+  // overwriting the parents align-item: center to self ( thus user-navigation wont allign with its other siblings(logo,search)
+  align-self: stretch; // navigation takes all the space of the parent
+
+  display: flex; // flex item becomes a flex container
+  align-items: center; //vertically centering the items
+
+  //styling all of the direct children of user-nav
+  & > * {
+    padding: 0 2rem; //(top-bottom, left-right)
+    cursor: pointer;
+    height: 100%; // takes all the available space
+    display: flex;
+    align-items: center; // vertically centering
+  }
+  //styling all of the direct children of user-nav
+  & > *:hover {
+    background-color: var(--color-grey-light-2);
+  }
 
   &__icon-box {
+    position: relative;
   }
 
   &__icon {
     height: 2.25rem;
     width: 2.25rem;
+    fill: var(--color-grey-dark-2); // changing the color of the icon
   }
 
   &__notification {
+    font-size: 0.8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #fff;
+    //flexbox does not provide us with a way to position an element exactly as we want that
+    position: absolute; // thus parents element should be positioned to relative (icon-box)
+    // thus positioning on the parent box
+    top: 1.5rem;
+    right: 1.1rem;
+
+    //for positioning the txt as flexbox not only works for child element but also works for text
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   &__user-photo {
     height: 3.75rem;
     // make this round
     border-radius: 50%;
-  }
-  &__user_name {
+    margin-right: 1rem;
   }
 }
