@@ -10,14 +10,21 @@
 }
 
 .header {
+  font-size: 1.4rem;
   height: 7rem;
   background-color: #fff;
   border-bottom: var(--color-grey-light-2);
+  // adding flex properties to the child
+  display: flex;
+  //giving space between logo, search & user nav
+  justify-content: space-between;
+  // alligning items in cross (Y) axis
+  align-items: center;
 }
 
-// THis is the flex container
+// THis is the flex container containing sidebar & hotel view
 .content {
-  // we want sidebar and navigation side by side
+  // we want sidebar and hotel-view side by side
   display: flex;
 }
 
