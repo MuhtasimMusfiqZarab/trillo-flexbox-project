@@ -196,9 +196,6 @@
     align-items: center;
   }
 
-  &__link:hover {
-  }
-
   &__icon {
     width: 1.75rem;
     height: 1.75rem;
@@ -216,4 +213,116 @@
   //centering the text in a block
   text-align: center;
   padding: 2.5rem;
+}
+
+//////////////////////////////////////////////////////////////////////////
+////// GALLERY
+
+.gallery {
+  display: flex; // this always puts element side by side
+  &__photo {
+    // for responsive design we need width and height in percentages so they stays fluid and they fit inside a given space
+    width: 100%;
+    display: block;
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+//////  HOTEL OVERVIEW
+
+.overview {
+  display: flex; // positining child element side by side
+  align-items: center; // centering elements in cross(y) axis
+  border-bottom: 2px solid var(--color-grey-light-2);
+
+  &__heading {
+    font-size: 2.25rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1.5rem 3rem;
+  }
+  &__stars {
+    // flex: 1; // flex item grows and occupy all the available space // we cant use it because we dont want the box to have occupy the whole available space
+    margin-right: auto; // thus we use margin-right to auto (instead of flex:1 because the background takes the whole space)
+    display: flex; // removing the white-space as svg elements works as inline elements giving space around it
+  }
+  &__icon-star,
+  &__icon-location {
+    width: 1.75rem;
+    height: 1.75rem;
+    fill: var(--color-primary); // adding the color
+  }
+  &__location {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center; // vertical allign
+  }
+
+  &__icon-location {
+    margin-right: 0.5rem;
+  }
+
+  &__rating {
+    background-color: var(--color-primary);
+    color: #fff;
+    margin-left: 3rem;
+    padding: 0 2.25rem;
+    // stretching all the way (up and down) of the parent container
+    align-self: stretch; // this overrides allign-items center from the parent
+    display: flex;
+    flex-direction: column;
+    align-items: center; // vertically allign
+    justify-content: center; // centering all the items of the container
+  }
+  &__rating-average {
+    font-size: 2.25rem;
+    font-weight: 300;
+    margin-bottom: -3px;
+  }
+  &__rating-count {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+}
+
+//////////////////////////////////////////////////////////
+///// BUTTON INLINE
+
+.btn-inline {
+  border: none; // removing the button border
+  color: var(--color-primary);
+  font-size: inherit; // to make this button moduler(reusable)
+  border-bottom: 1px solid currentColor; // color is exact as the text
+  padding-bottom: 2px;
+  display: inline-block; // the default is inline
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s; //animation
+
+  &:hover {
+    color: var(--color-grey-dark-1); // border also updates as well
+  }
+
+  // while clicked (and focus is on it)the button
+  &:focus {
+    outline: none; // removes default blue border
+    animation: pulsate 1s infinite;
+  }
+}
+
+// here is the keyframe animation
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
 }

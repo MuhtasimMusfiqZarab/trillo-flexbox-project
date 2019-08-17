@@ -13,7 +13,7 @@
   font-size: 1.4rem;
   height: 7rem;
   background-color: #fff;
-  border-bottom: var(--color-grey-light-2);
+  border-bottom: 2px solid var(--color-grey-light-2);
   // adding flex properties to the child
   display: flex;
   //giving space between logo, search & user nav
@@ -42,7 +42,6 @@
 .hotel-view {
   background-color: #fff;
   // TEST
-  background-color: orangered;
   height: 80rem;
   // occupy the entire available space(flex-grow)
   flex: 1;
