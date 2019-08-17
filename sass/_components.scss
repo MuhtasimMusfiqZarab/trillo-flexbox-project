@@ -133,3 +133,87 @@
     margin-right: 1rem;
   }
 }
+
+//////////////////////////////////////////////////////////////////////////
+//////SIDE NAVIGATION
+
+.side-nav {
+  font-size: 1.4rem;
+  list-style: none; // getting rid of the numbering / point sign
+  margin-top: 3.5rem;
+  &__item {
+    position: relative; // the parent should be relative if the child is positioned as absolute
+
+    // styling except the last child
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  // adding psudo-element for hovering effect (small line that with be visible and expands to the right side)
+  &__item::before {
+    content: ""; // this is for showing the content in the browser
+    position: absolute; // positioning absolute relative to the parent
+    top: 0;
+    left: 0;
+    height: 100%; // taking 100% of the parent list item
+    width: 3px; // this does not work cox transform scaleY is set to 0
+    background-color: var(--color-primary);
+    // transition & transform both need to be written together for the effect
+    transform: scaleY(0); // not taking any space
+    // transform-origin: bottom; // this is set to center by default
+    transition: transform 0.2s,
+      width 0.4s cubic-bezier(0.84, 0.08, 0.24, 1) 0.3s, background-color 0.1s; // we need this to see the effect // delay between transform & width is .3s
+  }
+
+  //--------------chaging style while hovering
+  // active state should be as the hover state
+  &__item:hover::before,
+  &__item--active::before {
+    transform: scaleY(1); // taking 100%
+    width: 100%; // initially its 3px but on hover takes the whole width
+  }
+
+  //changing styles while clicked
+  &__item:active::before {
+    background-color: var(--color-primary-light);
+  }
+
+  // styling the default link style
+  &__link:link,
+  &__link:visited {
+    color: var(--color-grey-light-1);
+    text-decoration: none; // getting rid of underline
+    text-transform: uppercase;
+    display: block; // display as a block/inline block (same)==> this is for the box model
+    padding: 1.5rem 3rem;
+    // positioning the link to the top (after or before psudo-element)
+    position: relative; // z index only works for specified position
+    z-index: 20;
+
+    //positioning the icon & text
+    display: flex;
+    align-items: center;
+  }
+
+  &__link:hover {
+  }
+
+  &__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: 2rem;
+    fill: currentColor; // this colors the icon as the parent element (side-nav__link)
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+////// LEGAL TEXT
+
+.legal {
+  font-size: 1.2rem;
+  color: var(--color-grey-light-4);
+  //centering the text in a block
+  text-align: center;
+  padding: 2.5rem;
+}

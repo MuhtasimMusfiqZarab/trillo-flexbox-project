@@ -33,11 +33,17 @@
 
   //define the width we use flex-basis property (short hand is flex (flex-grow, flex-shrink, flex-basis)
   flex: 0 0 18%;
+  // THis is the flex container
+  display: flex;
+  flex-direction: column; // changing direction from top to bottom
+  justify-content: space-between;
 }
 
 .hotel-view {
   background-color: #fff;
-
+  // TEST
+  background-color: orangered;
+  height: 80rem;
   // occupy the entire available space(flex-grow)
   flex: 1;
 }
