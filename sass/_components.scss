@@ -233,7 +233,7 @@
 .overview {
   display: flex; // positining child element side by side
   align-items: center; // centering elements in cross(y) axis
-  border-bottom: 2px solid var(--color-grey-light-2);
+  border-bottom: var(--line);
 
   &__heading {
     font-size: 2.25rem;
@@ -324,5 +324,84 @@
   100% {
     transform: scale(1);
     box-shadow: none;
+  }
+}
+
+//////////////////////////////////////////////////////////
+///// PARAGRAPH
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+
+//////////////////////////////////////////////////////////
+///// LIST
+.list {
+  list-style: none;
+  margin: 3rem 0;
+  padding: 3rem 0;
+  border-top: var(--line);
+  border-bottom: var(--line);
+
+  // putting the list side by side
+  display: flex;
+  flex-wrap: wrap; // wrap the elements to new line if not there is not enough space
+
+  //giving items a fixed width
+  &__item {
+    flex: 0 0 50%; // we want 2 elements side by side
+    margin-bottom: 0.7rem;
+  }
+
+  // this is created before each of the icon elements is created (used for the list icon)
+  &__item::before {
+    // we always have to specify the content property
+    content: "";
+    display: inline-block; // this lets us provide height and width
+    // need to specify the height and width
+    height: 1rem;
+    width: 1rem;
+    margin-right: 0.7rem;
+
+    // For older browsers // cant change the color //relative to compiled css file
+    // background-image: url(../img/chevron-thin-right.svg);
+    // background-size: cover;
+
+    //Newer Browsers --masks (a mask defines an area where we can look through an element & see whats behind the element)
+    background-color: var(--color-primary);
+    //look through the icon to see the background color (the rest will be coverd)
+    -webkit-mask-image: url(../img/chevron-thin-right.svg);
+    mask-image: url(../img/chevron-thin-right.svg); // for compability issue
+    -webkit-mask-size: cover; // behaves as backgroung size (icon covers the entire element)
+    mask-size: cover; // compability issue (icon is larger than the icon size thus we need this)
+  }
+}
+
+//////////////////////////////////////////////////////////
+///// RECOMMEND
+.recommend {
+  font-size: 1.3rem;
+  color: var(--color-grey-dark-3);
+
+  display: flex;
+  align-items: center; // center vertically
+
+  &__count {
+    margin-right: auto; // takes the whole available space
+  }
+  &__friends {
+  }
+  &__photo {
+    // content box adds border to be added on top of height and width
+    // content box is the default thus the 4rem 4rem image size defined is not changed
+    box-sizing: content-box; // border-box :includes padding and border into the width & height of the element
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: 3px solid #fff;
+
+    //overlapping on top of other
+    &:not(:last-child) {
+      margin-right: -1.5rem;
+    }
   }
 }

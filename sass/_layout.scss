@@ -13,7 +13,7 @@
   font-size: 1.4rem;
   height: 7rem;
   background-color: #fff;
-  border-bottom: 2px solid var(--color-grey-light-2);
+  border-bottom: var(--line);
   // adding flex properties to the child
   display: flex;
   //giving space between logo, search & user nav
@@ -41,8 +41,28 @@
 
 .hotel-view {
   background-color: #fff;
-  // TEST
-  height: 80rem;
   // occupy the entire available space(flex-grow)
   flex: 1;
+}
+
+.detail {
+  display: flex;
+  padding: 4.5rem;
+  background-color: var(--color-grey-light-1);
+  border-bottom: var(--line);
+}
+
+.description {
+  background-color: #fff;
+  font-size: 1.4rem;
+  box-shadow: var(--shadow-light);
+  padding: 3rem;
+  // haviing 60% of the width
+  flex: 0 0 60%; // grow shrink basis
+  margin-right: 4.5rem;
+}
+
+.user-reviews {
+  background-color: yellowgreen;
+  flex: 1; // flex grow=1 takes the remaining space
 }
