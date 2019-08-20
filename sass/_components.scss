@@ -141,12 +141,28 @@
   font-size: 1.4rem;
   list-style: none; // getting rid of the numbering / point sign
   margin-top: 3.5rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    display: flex; // putting elements side by side
+    margin: 0; // remove margin arounnd sidebar
+  }
+
   &__item {
     position: relative; // the parent should be relative if the child is positioned as absolute
 
     // styling except the last child
     &:not(:last-child) {
       margin-bottom: 0.5rem;
+
+      //remove the margin
+      @media only screen and (max-width: $bp-medium) {
+        margin: 0;
+      }
+    }
+
+    // items grows as much as they can
+    @media only screen and (max-width: $bp-medium) {
+      flex: 1;
     }
   }
 
@@ -194,6 +210,11 @@
     //positioning the icon & text
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: $bp-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
   }
 
   &__icon {
@@ -213,6 +234,11 @@
   //centering the text in a block
   text-align: center;
   padding: 2.5rem;
+
+  // remove this one
+  @media only screen and (max-width: $bp-medium) {
+    display: none;
+  }
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -400,6 +426,11 @@
     margin-right: auto; // takes the whole available space
   }
 
+  //we want the photos to be side by side
+  &__friends {
+    display: flex;
+  }
+
   &__photo {
     // content box adds border to be added on top of height and width
     // content box is the default thus the 4rem 4rem image size defined is not changed
@@ -411,7 +442,7 @@
 
     //overlapping on top of other
     &:not(:last-child) {
-      margin-right: -1.5rem;
+      margin-right: -2rem;
     }
   }
 }
@@ -427,6 +458,12 @@
   position: relative;
   // solving the qoute not to overflow the box
   overflow: hidden;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
+
   &__text {
     margin-bottom: 2rem;
     z-index: 20;
@@ -483,6 +520,11 @@
 .cta {
   padding: 3.5rem 0;
   text-align: center; // centering text and button
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2.5rem 0;
+  }
+
   &__book-now {
     font-size: 2rem;
     font-weight: 300;

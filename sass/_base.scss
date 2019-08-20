@@ -38,6 +38,11 @@ Grey dark 3: #999
   --line: 2px solid var(--color-grey-light-2);
 }
 
+//SASS variables for media queries(as we cant css custom properties in media screen)
+$bp-largest: 75em; //1200px // 1200/16px = 75em // 1 em=16px;
+$bp-large: 68.75em; //1100px //1100/16=68.5
+$bp-medium: 56.25em; //900px // 900/16=56.25
+
 // global reset
 * {
   margin: 0;
@@ -56,7 +61,13 @@ Grey dark 3: #999
 html {
   box-sizing: border-box;
   // setting the global font-size
-  font-size: 62.5%; // defining 1rem=10px; Here 100%= 16px;
+  // this is the initial global font size(10px)
+  font-size: 62.5%; // defining 1rem=10px; Here 100%= 16px; // we want to make rem to 10 px
+
+  //font size changes at 1100px
+  @media only screen and (max-width: $bp-large) {
+    font-size: 50%; // font to 8px // changes 120rem(container from 1200px to 960px)
+  }
 }
 
 body {

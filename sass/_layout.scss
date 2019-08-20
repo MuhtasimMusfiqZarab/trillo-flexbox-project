@@ -7,6 +7,13 @@
 
   //defining the height
   min-height: 50rem;
+
+  // we are gonna put the media queries here
+  @media only screen and (max-width: $bp-largest) {
+    margin: 0; // fill the entire screen
+    max-width: 100%; // under 1200px the container takes all the width
+    width: 100%;
+  }
 }
 
 .header {
@@ -26,6 +33,11 @@
 .content {
   // we want sidebar and hotel-view side by side
   display: flex;
+
+  // stack sidebar & content on top of other
+  @media only screen and (max-width: $bp-medium) {
+    flex-direction: column;
+  }
 }
 
 .sidebar {
@@ -51,6 +63,10 @@
   padding: 4.5rem;
   background-color: var(--color-grey-light-1);
   border-bottom: var(--line);
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 3rem;
+  }
 }
 
 .description {
@@ -60,6 +76,11 @@
   // haviing 60% of the width
   flex: 0 0 60%; // grow shrink basis
   margin-right: 4.5rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-right: 3rem;
+  }
 }
 
 .user-reviews {
