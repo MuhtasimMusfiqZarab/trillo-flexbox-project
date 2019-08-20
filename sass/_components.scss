@@ -399,8 +399,7 @@
   &__count {
     margin-right: auto; // takes the whole available space
   }
-  &__friends {
-  }
+
   &__photo {
     // content box adds border to be added on top of height and width
     // content box is the default thus the 4rem 4rem image size defined is not changed
@@ -476,5 +475,80 @@
     color: var(--color-grey-light-2);
     font-family: sans-serif; // for changing the quatation style (default was open-sans)
     z-index: 1;
+  }
+}
+
+//////////////////////////////////////////////////////////
+///// CALL TO ACTION
+.cta {
+  padding: 3.5rem 0;
+  text-align: center; // centering text and button
+  &__book-now {
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+}
+
+//////////////////////////////////////////////////////////
+///// CALL TO ACTION
+
+.btn {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-radius: 100px;
+  border: none;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
+  color: #fff;
+  position: relative; // this is to position the child to a absolute positoin
+  overflow: hidden; // hide the button content which falls outside the box(button)
+
+  // selecting all of the child elements
+  & > * {
+    // span is an inline element (we need inline-block)==> so that we can use padding in there
+    display: inline-block;
+    // inheriting height and width of its parent element (this is needed for the transition)
+    height: 100%;
+    width: 100%;
+    transition: all 0.2s; // visible it while hovered with animation // transition does not work for background images/ gradient
+  }
+
+  &__visible {
+    padding: 2rem 7.5rem;
+  }
+
+  &__invisible {
+    position: absolute; // to put it outside of the button
+    padding: 2rem 0;
+    left: 0;
+    top: -100%; // move it up exactly of its size
+  }
+
+  &:hover {
+    background-image: linear-gradient(
+      to left,
+      var(--color-primary-light),
+      var(--color-primary-dark)
+    );
+  }
+
+  // buton animation
+  &:hover &__visible {
+    // we cant use top because we didnot use absolute positining on it
+    transform: translateY(100%);
+  }
+  &:hover &__invisible {
+    top: 0;
+  }
+
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
   }
 }
